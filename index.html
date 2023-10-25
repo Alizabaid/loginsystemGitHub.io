@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .divb {
+            margin-top: 40px;
+        }
+        h1{
+            color: white;
+        }
+        div{
+            width: 300px;
+            border: 2px solid rgb(239, 18, 18);
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+        input{
+            padding: 15px 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: 2px solid rgb(9, 8, 8);
+        }
+        button{
+            padding: 10px 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: red;
+            border: 5px solid red;
+            color: white;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(12, 12, 12);">
+    <center>
+    <div>
+        <h1>SIGN UP SYSTEM</h1>
+        <input type="text" id="name" placeholder="name">
+        <br>
+        <br>
+        <input type="email" id="email" placeholder="Email">
+        <br>
+        <br>
+        <input type="password" id="password" placeholder="password">
+        <br>
+        <br>
+        <button onclick="push()">Sign up</button>
+    </div>
+
+    <div class="divb">
+        <H1>LOGIN SYSTEM</H1>
+        <input type="email" id="email-2" placeholder="Email">
+        <br>
+        <br>
+        <input type="password" id="password-2" placeholder="password">
+        <br>
+        <br>
+        <button onclick="login()">Login</button> 
+    </div>
+</center>
+    <script>
+        let users = []; 
+
+        function push() {
+            users.push({
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+            });
+            console.log(users);
+        }
+
+        function login() { 
+            let email = document.getElementById("email-2").value;
+            let password = document.getElementById("password-2").value;
+            let valid = false;
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email === email && users[i].password === password) {
+                    window.alert("Login successfully");
+                    valid = true;
+                   
+                }
+            }
+
+            if (!valid) {
+                window.alert("Invalid Email & password");
+            }
+        }
+    </script>
+</body>
+</html>
